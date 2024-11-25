@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수정하기</title>
+</head>
+<body>
+    <form action="/board/update" method="post" id="update-form">
+        <input type="hidden" name="no" th:value="${board.no}"/>
+        <table>
+            <tr class="line-tr">
+                <td class="title update-title">제&nbsp;&nbsp;&nbsp;목</td>
+                <td class="content">
+                    <input type="text" th:field="${board.title}" class="update-input" required/>
+                </td>
+            </tr>
+            <tr class="line-tr">
+                <td class="title update-title">작성자</td>
+                <td class="content">
+                    <input type="text" th:field="${board.writer}" class="update-input" required/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="board-content update" >
+                    <textarea class="update-textarea" th:field="${board.content}" required></textarea>
+                </td>
+            </tr>
+        </table>
+        <button type="submit">수정하기</button>
+        <a href="/board/list">목록</a>
+    </form>
+    <form action="/board/delete" method="post">
+        <input type="hidden" name="no" th:value="${board.no}"/>
+        <button type="submit">삭제하기</button>
+    </form>
+</body>
+</html>

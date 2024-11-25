@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 목록</title>
+</head>
+<body>
+    <a href="/board/insert" class="write-btn">글쓰기</a>
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>등록일자</th>
+            <th>수정일자</th>
+        </tr>
+        <th:block th:if="${ !boardList.isEmpty() }" th:each="board : ${boardList}">
+            <tr>
+                <td th:text="${board.no}"></td>
+                <td>
+                    <a th:href="|/board/read/${board.no}|" th:text="${board.title}"></a>
+                </td>
+                <td th:text="${board.writer}"></td>
+                <td th:text="${ #dates.format( board.createdAt, 'yyyy-MM-dd' ) }"></td>
+                <td th:text="${ #dates.format( board.updatedAt, 'yyyy-MM-dd' ) }"></td>
+            </tr>
+        </th:block>
+        <th:block th:if="${ boardList == null || boardList.isEmpty()}">
+            <tr>
+               <td rowspan="5">게시물이 없습니다.</td> 
+            </tr>
+        </th:block>
+    </table>
+    <th:block th:if="${page.total > 0}">
+        <!-- 처음 페이지 -->
+        <th:blcok th:if="${page.start > page.first}">
+            <a th:href="|/board/list?page=${page.first}|">
+                [처음]
+            </a>
+        </th:blcok>
+        <!-- 이전 페이지 -->
+        <th:blcok th:if="${page.start > page.prev && page.prev > page.first}">
+            <a th:href="|/board/list?page=${page.prev}|">
+                [이전]
+            </a>
+        </th:blcok>
+        
+        <!-- 현재 페이지 -->
+        <th:blcok th:each=" no : ${ #numbers.sequence( page.start , page.end ) }">
+            <a th:href="|/board/list?page=${no}|">
+                <th:block th:if="page.page == no">
+                    <b th:text="${no}"></b>
+                </th:block>
+                <th:block th:if="page.page != no">
+                    <span th:text="${no}"></span>
+                </th:block>
+            </a>
+        </th:blcok>
+        
+        <!-- 다음페이지 -->
+        <th:blcok th:if="${page.next > page.end && page.last > page.end}">
+            <a th:href="|/board/list?page=${page.next}|">
+                [다음]
+            </a>
+        </th:blcok>
+        
+        <!-- 마지막 페이지 -->
+        <th:blcok th:if="${page.last > page.end}">
+            <a th:href="|/board/list?page=${page.last}|">
+                [마지막]
+            </a>
+        </th:blcok>
+    </th:block>
+</body>
+</html>
