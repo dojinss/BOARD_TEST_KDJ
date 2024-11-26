@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container">
-
+        <h1>게시글 목록</h1>
         <a href="/board/insert" class="write-btn btn">글쓰기</a>
         <table border="1">
             <tr>
@@ -38,7 +38,7 @@
         <div class="paging">
     
             <th:block th:if="${page.total > 0}">
-                <th:blcok th:if="${page.start > page.first}">
+                <th:blcok th:if="${page.start > page.first}" class="arrow-box">
                     <!-- 처음 페이지 -->
                     <a th:href="|/board/list?page=${page.first}|" class="page-btn">
                         &lt;&lt;
@@ -50,18 +50,18 @@
                 </th:blcok>
                 
                 <!-- 현재 페이지 -->
-                <th:blcok th:each=" no : ${ #numbers.sequence( page.start , page.end ) }">
+                <th:blcok th:each=" no : ${ #numbers.sequence( page.start , page.end ) }" >
                     <a th:href="|/board/list?page=${no}|" class="page-btn">
-                        <th:block th:if="page.page == no">
+                        <th:block th:if="${page.page == no}">
                             <b th:text="${no}"></b>
                         </th:block>
-                        <th:block th:if="page.page != no">
+                        <th:block th:if="${page.page != no}">
                             <span th:text="${no}"></span>
                         </th:block>
                     </a>
                 </th:blcok>
                 
-                <th:blcok th:if="${page.last > page.end}">
+                <th:blcok th:if="${page.last > page.end}" class="arrow-box">
                     <!-- 다음페이지 -->
                     <a th:href="|/board/list?page=${page.next}|" class="page-btn">
                         &gt;

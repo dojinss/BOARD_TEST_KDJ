@@ -7,33 +7,46 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <form action="/board/update" method="post" id="update-form">
-        <input type="hidden" name="no" th:value="${board.no}"/>
-        <table>
-            <tr class="line-tr">
-                <td class="title update-title">제&nbsp;&nbsp;&nbsp;목</td>
-                <td class="content">
-                    <input type="text" th:field="${board.title}" class="update-input" required/>
-                </td>
-            </tr>
-            <tr class="line-tr">
-                <td class="title update-title">작성자</td>
-                <td class="content">
-                    <input type="text" th:field="${board.writer}" class="update-input" required/>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" class="board-content update" >
-                    <textarea class="update-textarea" th:field="${board.content}" required></textarea>
-                </td>
-            </tr>
-        </table>
-        <button type="submit">수정하기</button>
-        <a href="/board/list">목록</a>
-    </form>
-    <form action="/board/delete" method="post">
-        <input type="hidden" name="no" th:value="${board.no}"/>
-        <button type="submit">삭제하기</button>
-    </form>
+    <div class="container">
+        <h1>게시글 수정</h1>
+        <form action="/board/update" method="post" id="update-form">
+            <input type="hidden" name="no" th:value="${board.no}"/>
+            <table>
+                <tr class="line-tr">
+                    <td class="title update">제&nbsp;&nbsp;&nbsp;목</td>
+                    <td class="content update">
+                        <input type="text" th:field="${board.title}" class="update-input" required/>
+                    </td>
+                </tr>
+                <tr class="line-tr">
+                    <td class="title update">작성자</td>
+                    <td class="content update">
+                        <input type="text" th:field="${board.writer}" class="update-input" required/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="board-content update" >
+                        <textarea class="update-textarea" th:field="${board.content}" required></textarea>
+                    </td>
+                </tr>
+            </table>
+            <div class="btn-box">
+                <button type="submit" class="btn">수정하기</button>
+                <button type="button" onclick="deleteBoard()" class="btn del-btn">삭제하기</button>
+                <a href="/board/list" class="btn">목록</a>
+            </div>
+        </form>
+        <form action="/board/delete" method="post" id="del-form">
+            <input type="hidden" name="no" th:value="${board.no}"/>
+        </form>
+    </div>
+    <script>
+        function deleteBoard() {
+            let check = confirm("삭제 하시겠습니까?")
+            if (check) {
+                document.getElementById("del-form").submit()
+            }
+        }
+    </script>
 </body>
 </html>

@@ -5,6 +5,7 @@
 }
 a {
     text-decoration: none;
+    color: #333;
 }
 .page-btn{
     display: flex;
@@ -21,6 +22,27 @@ a {
     justify-content: center;
     flex-direction: row;
     gap: 5px;
+}
+.arrow-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 5px;
+}
+.arrow-box a {
+    background-color: #1a7dce;
+    color: white;
+}
+.paging b {
+    font-weight: bold;
+    font-size: 16px;
+}
+.paging span {
+    font-size: 14px;
+}
+.paging a:hover {
+    scale: 1.1;
 }
 .container{
     padding: 40px;
@@ -42,7 +64,7 @@ tr{
     height: 40px;
 }
 td{
-    padding: 5px;
+    padding: 5px 0;
     text-align: center;
 }
 input {
@@ -62,5 +84,61 @@ h1{
     padding: 30px;
 }
 .btn-box {
-    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+tr.line-tr {
+    display: grid;
+    grid-template-columns: 130px auto;
+    height: 40px;
+    margin-bottom: 5px;
+}
+td.title {
+    background-color: #ccc;
+    width: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+}
+td.content {
+    width: 490px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 0 15px;
+    height: 40px;
+}
+
+/* Update */
+td.content.update {
+    padding: 0;
+}
+.update-input {
+    width: 520px
+}
+td.board-content {
+    padding: 20px;
+    border: 1px solid #000;
+    height: 300px;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+}
+td.board-content.update {
+    padding: 0;
+    border: none;
+}
+.del-btn {
+    background-color: #c41515;
+}
+
+/* insert */
+.input-content td{
+    width: 620px;
+    padding: 0;
+    border: none;
 }
