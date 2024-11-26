@@ -81,20 +81,12 @@ public class Page {
         if( this.end > this.last) this.end = this.last;
         
         // 이전 번호
-        this.prev = ( (int)((page) / count) ) * count;
+        this.prev = start - 1;
         // 다음 번호
-        this.next = ( (int)((page-1) / count) + 1 ) * count + 1;
+        this.next = end + 1;
         // 데이터 순서 번호
         this.index = (page - 1) * rows;
 
-        log.info("first : " + this.first);
-        log.info("start : " + this.start);
-        log.info("prev : " + this.prev);
-        log.info("next : " + this.next);
-        log.info("end : " + this.end);
-        log.info("count : " + this.count);
-        log.info("total : " + this.total);
-        log.info("index : " + this.index);
     }
     
 }

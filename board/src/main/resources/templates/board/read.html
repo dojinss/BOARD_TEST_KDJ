@@ -4,25 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title th:text="${board.title}"></title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <table>
-        <tr class="line-tr">
-            <td class="title">제&nbsp;&nbsp;&nbsp;목</td>
-            <td class="content" th:text="${board.title}"></td>
-        </tr>
-        <tr class="line-tr">
-            <td class="title">작성자</td>
-            <td class="content" th:text="${board.writer}"></td>
-        </tr>
-        <tr >
-            <td colspan="2" class="board-content"  th:text="${board.content}">
-            </td>
-        </tr>
-    </table>
-    <div class="btn-box">
-        <a th:href="|/board/update/${board.no}|" class="btn to-update">수정</a>
-        <a href="/board/list" class="btn to-list">목록</a>
+    <div class="container">
+        <table>
+            <tr class="line-tr">
+                <td class="title">제&nbsp;&nbsp;&nbsp;목</td>
+                <td class="content" th:text="${board.title}"></td>
+            </tr>
+            <tr class="line-tr">
+                <td class="title">작성자</td>
+                <td class="content" th:text="${board.writer}"></td>
+            </tr>
+            <tr >
+                <td colspan="2" class="board-content"  th:text="${board.content}">
+                </td>
+            </tr>
+        </table>
+        <div class="btn-box">
+            <a th:href="|/board/update/${board.no}|" class="btn to-update">수정</a>
+            <a href="/board/list" class="btn to-list">목록</a>
+        </div>
     </div>
 </body>
 </html>

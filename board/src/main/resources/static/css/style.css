@@ -1,0 +1,66 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+}
+.page-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border: 1px solid #000;
+}
+.paging {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 5px;
+}
+.container{
+    padding: 40px;
+    width: 700px;
+    margin: 0 auto;
+}
+.btn{
+    width: 120px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1a7dce;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+tr{
+    height: 40px;
+}
+td{
+    padding: 5px;
+    text-align: center;
+}
+input {
+    padding: 5px;
+    height: 40px;
+    width: 620px;
+}
+textarea{
+    width: 620px;
+    height: 300px;
+    padding: 5px;
+}
+h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+.btn-box {
+    
+}
